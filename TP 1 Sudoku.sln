@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noyau", "Noyau\Noyau.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "genetic_solver", "genetic_solver\genetic_solver.csproj", "{15F03A3D-C4F2-4771-94B7-940EA63FA452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15F03A3D-C4F2-4771-94B7-940EA63FA452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15F03A3D-C4F2-4771-94B7-940EA63FA452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15F03A3D-C4F2-4771-94B7-940EA63FA452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15F03A3D-C4F2-4771-94B7-940EA63FA452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
