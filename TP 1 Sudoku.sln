@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noyau", "Noyau\Noyau.csproj", "{EC4B1D18-1AFB-4CA6-B9E1-2FDB63BAF17F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noyau", "Noyau\Noyau.csproj", "{EC4B1D18-1AFB-4CA6-B9E1-2FDB63BAF17F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benchmark.csproj", "{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORToolsSolver", "ORToolsSolver\ORToolsSolver.csproj", "{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
