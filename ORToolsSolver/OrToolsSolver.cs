@@ -2,141 +2,104 @@
 using System.Collections.Generic;
 using System.Text;
 using Noyau;
-using Google.OrTools.LinearSolver;
-
+using Google.OrTools;
+using Google.OrTools.Sat;
 
 namespace ORToolsSolver
 {
     public class OrToolsSolver : ISudokuSolver
     {
+        
+
         public Sudoku Solve(Sudoku s)
         {
-            //adapter le code pourque la variable sudoku fonctionne et coder la function cellVar(i,j,k)  = 1 si la case ij prend la valeur k 
-            // is a boolean variable, equal to 1 if grid cell (i,j) takes value k,
-            // 0 otherwise.
-            var solver = LinearOptimizationService.createEngine();
-            var sheet = SpreadsheetApp.getActiveSpreadsheet();
-            var size = input.length;
-            var blockSize = Math.sqrt(size);
-            if (blockSize * blockSize != size)
+            CpModel model = new CpModel();
+
+            IntVar[][] tab_s = new IntVar[9][];
+            for (int i = 0; i < tab_s.Length; i++)
             {
-                throw 'Grid size must be the square of a number';
+                tab_s[i] = new IntVar[9];
             }
-            var width = s[0].length;
-            if (size != width)
+
+            for(int i = 0; i<tab_s.Length; i++)
             {
-                throw 'Grid must be a square';
-            }
-            // Variables
-          
-            for (var i = 0; i < size; ++i)
-            {
-                for (var j = 0; j < size; ++j)
+                for(int j = 0; j<tab_s[i].Length; j++)
                 {
-                    // Each cell can only take a single value:
-                    // for all (i,j) in (rows, columns), Sum(k)cellVar(i,j,k) == 1
-                    var uniqueValueCt = solver.addConstraint(1, 1);
-                    for (var k = 1; k <= size; ++k)
+                       tab_s[i][j] = model.NewIntVar(1, 9, "grid"+ "(" + i +"," + j +")");    
+                }
+            }
+
+            //constraints all differents on rows 
+            for(int i =0; i< tab_s.Length;i++)
+            {
+                model.AddAllDifferent(tab_s[i]); 
+            }
+            // Constraints all differents on colums 
+            IntVar[] tpm = new IntVar[9];
+            for(int j = 0; j<tab_s[0].Length;j++)
+            {
+                for (int i = 0; i < tab_s.Length; i++)
+                {
+                    tpm[i] = tab_s[i][j];
+                }
+                model.AddAllDifferent(tpm);
+                Array.Clear(tpm, 0, tpm.Length);
+            }
+
+            // Constraint all differents on cells 
+            List<IntVar> ls = new List<IntVar>();
+            for(int i =0; i< 7; i+=3)
+            {
+                for(int j=0; j<7; j+=3)
+                {
+                    for(int k = 0; k<3; k++)
                     {
-                        // var(i,j,k) == 1 <=> cell(i,j) == k
-                        if (s[i][j])
+                        for (int l = 0; l<3; l++)
                         {
-                            if (s[i][j] == k)
-                            {
-                                solver.addVariable(cellVar(i, j, k), 1, 1, LinearOptimizationService.VariableType.INTEGER);
-                            }
-                            else
-                            {
-                                solver.addVariable(cellVar(i, j, k), 0, 0, LinearOptimizationService.VariableType.INTEGER);
-                            }
+                            ls.Add(tab_s[i+k][j+l]);
                         }
-                        else
-                        {
-                            solver.addVariable(cellVar(i, j, k), 0, 1, LinearOptimizationService.VariableType.INTEGER);
-                        }
-                        uniqueValueCt.setCoefficient(cellVar(i, j, k), 1);
+                        
+                    }
+                    model.AddAllDifferent(ls);
+                    ls.Clear();
+                }
+            }
+
+            //initial Value
+            for(int i = 0; i<9; i++)
+            {
+                for(int j = 0; j<9;j++)
+                {
+                    if(s.GetCell(i,j)!=0)
+                    {
+                        model.Add(tab_s[i][j] == s.GetCell(i, j));
                     }
                 }
             }
-            // Constraints: each value appears once one each row, column and sub-block.
-            for (var i = 0; i < size; ++i)
-            {
-                for (var k = 1; k <= size; ++k)
-                {
-                    // Values appear once in each row:
-                    // for all i in rows, k in values, Sum(j)cellVar(i,j,k) == 1
-                    var oncePerRowCt = solver.addConstraint(1, 1);
-                    // Values appear once in each column:
-                    // for all i in columns, k in values, Sum(j)cellVar(j,i,k) == 1
-                    var oncePerColumnCt = solver.addConstraint(1, 1);
-                    for (var j = 0; j < size; ++j)
+
+            //creation of the Solver 
+            CpSolver solver = new CpSolver();
+            CpSolverStatus status = solver.Solve(model);
+            List<int> lsol = new List<int>();
+
+            if (status == CpSolverStatus.Feasible)
+            { 
+                for(int i = 0; i<9; i++)
+                {  
+                    for(int j=0; j<9; j++)
                     {
-                        oncePerRowCt.setCoefficient(cellVar(i, j, k), 1);
-                        oncePerColumnCt.setCoefficient(cellVar(j, i, k), 1);
+                     
+                        lsol.Add((int)(solver.Value(tab_s[i][j])));
                     }
+                   
+                    
                 }
             }
-            for (var i = 0; i < blockSize; ++i)
-            {
-                for (var j = 0; j < blockSize; ++j)
-                {
-                    for (var k = 1; k <= size; ++k)
-                    {
-                        // Values appear once in each sub-block:
-                        // for each block(i,j),
-                        // Sum(blockRow,blockColumn,k)cellVar(i * blockSize + blockRow, j * blockSize + blockColumn, k) == 1
-                        var oncePerBlockCt = solver.addConstraint(1, 1);
-                        for (var blockRow = 0; blockRow < blockSize; ++blockRow)
-                        {
-                            for (var blockColumn = 0; blockColumn < blockSize; ++blockColumn)
-                            {
-                                oncePerBlockCt.setCoefficient(cellVar(i * blockSize + blockRow, j * blockSize + blockColumn, k), 1);
-                            }
-                        }
-                    }
-                }
-            }
-            // Solve the Sudoku grid.
-            var solution = solver.solve(5);
-            var status = solution.getStatus();
-            if (status != LinearOptimizationService.Status.FEASIBLE && status != LinearOptimizationService.Status.OPTIMAL)
-            {
-                // If the remote Linear Optim Service fails, try to solve locally.
-                if (status != LinearOptimizationService.Status.INFEASIBLE)
-                {
-                    return solveLocal(s);
-                }
-                return null;
-            }
 
-            // Output solution.
-            var out = [];
-            for (var i = 0; i < size; ++i)
-            {
-                var row = []
-              for (var j = 0; j < size; ++j)
-                {
-                    for (var k = 1; k <= size; ++k)
-                    {
-                        if (Math.round(solution.getVariableValue(cellVar(i, j, k))) == 1)
-                        {
-                            row.push(k);
-                            break;
-                        }
-                    }
-                }
-    out.push(row);
-            }
-            return out;
+            Sudoku resolu = new Sudoku(lsol);
+            Console.WriteLine(resolu.ToString());
+            return resolu; 
 
-
-
-
-
-
-
-
-
-        }
+        }  
     }
 }
