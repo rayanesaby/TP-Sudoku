@@ -21,17 +21,15 @@ namespace genetic_solver
 
         public Sudoku Solve(Sudoku s)
         {
-
-         
-
-            return Eval(s,5000,0,100);
+            return Eval(s,1000,0,500);
         }
 
         public static Sudoku Eval( Sudoku sudoku, int populationSize, double fitnessThreshold, int generationNb)
         {
-
+            //creation du chromosome
             IChromosome chromosome = new SudokuPermutationsChromosome(sudoku);
             var fitness = new SudokuFitness(sudoku);
+
             var selection = new EliteSelection();
             var crossover = new UniformCrossover();
             var mutation = new UniformMutation();
@@ -50,7 +48,7 @@ namespace genetic_solver
 
             var bestIndividual = ((ISudokuChromosome)ga.Population.BestChromosome);
             var solutions = bestIndividual.GetSudokus();
-   
+
             return solutions[0];
         }
     }
