@@ -4,5 +4,6 @@ namespace Noyau
 {
     public class Sudoku
     {
+
     }
 }
