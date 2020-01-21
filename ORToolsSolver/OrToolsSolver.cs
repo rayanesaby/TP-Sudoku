@@ -97,7 +97,7 @@ namespace ORToolsSolver
             }
 
             Sudoku resolu = new Sudoku(lsol);
-            Console.WriteLine(resolu.ToString());
+
             return resolu; 
 
         }  

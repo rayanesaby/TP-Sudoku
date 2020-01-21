@@ -29,7 +29,8 @@ namespace ORToolsSolver
             Console.WriteLine(s.ToString());
 
             OrToolsSolver ORT = new OrToolsSolver();
-            ORT.Solve(s); 
+            s = ORT.Solve(s);
+            Console.WriteLine(s.ToString());
 
 
 
