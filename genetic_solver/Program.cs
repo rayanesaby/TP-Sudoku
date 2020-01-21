@@ -29,9 +29,8 @@ namespace genetic_solver
             Console.WriteLine(S1.ToString());
 
             GeneticSolver gs = new GeneticSolver();
-            gs.Solve(S1);
-
-
+            S1 = gs.Solve(S1);
+            Console.WriteLine(S1.ToString());
         }
     }
 }

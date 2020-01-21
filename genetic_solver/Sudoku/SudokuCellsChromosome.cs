@@ -2,8 +2,9 @@
 using System.Linq;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Randomizations;
+using Noyau;
 
-namespace GeneticSharp.Extensions.Sudoku
+namespace genetic_solver
 {
     /// <summary>
     /// This simple chromosome simply represents each cell by a gene with value between 1 and 9, accounting for the target mask if given
@@ -13,7 +14,7 @@ namespace GeneticSharp.Extensions.Sudoku
         /// <summary>
         /// The target sudoku board to solve
         /// </summary>
-        private readonly SudokuBoard _targetSudokuBoard;
+        private readonly Sudoku _targetSudoku;
 
         public SudokuCellsChromosome() : this(null)
         {
@@ -22,10 +23,10 @@ namespace GeneticSharp.Extensions.Sudoku
         /// <summary>
         /// Constructor that accepts a Sudoku to solve
         /// </summary>
-        /// <param name="targetSudokuBoard">the target sudoku to solve</param>
-        public SudokuCellsChromosome(SudokuBoard targetSudokuBoard) : base(81)
+        /// <param name="targetSudoku">the target sudoku to solve</param>
+        public SudokuCellsChromosome(Sudoku targetSudoku) : base(81)
         {
-            _targetSudokuBoard = targetSudokuBoard;
+            _targetSudoku = targetSudoku;
             for (int i = 0; i < Length; i++)
             {
                 ReplaceGene(i, GenerateGene(i));
@@ -40,9 +41,9 @@ namespace GeneticSharp.Extensions.Sudoku
         public override Gene GenerateGene(int geneIndex)
         {
             //If a target mask exist and has a digit for the cell, we use it.
-            if (_targetSudokuBoard != null && _targetSudokuBoard.Cells[geneIndex] != 0)
+            if (_targetSudoku != null && _targetSudoku.Cells[geneIndex] != 0)
             {
-                return new Gene(_targetSudokuBoard.Cells[geneIndex]);
+                return new Gene(_targetSudoku.Cells[geneIndex]);
             }
             var rnd = RandomizationProvider.Current;
             // otherwise we use a random digit.
@@ -51,17 +52,17 @@ namespace GeneticSharp.Extensions.Sudoku
 
         public override IChromosome CreateNew()
         {
-            return new SudokuCellsChromosome(_targetSudokuBoard);
+            return new SudokuCellsChromosome(_targetSudoku);
         }
 
         /// <summary>
         /// Builds a single Sudoku from the 81 genes
         /// </summary>
         /// <returns>A Sudoku board built from the 81 genes</returns>
-        public IList<SudokuBoard> GetSudokus()
+        public IList<Sudoku> GetSudokus()
         {
-            var sudoku = new SudokuBoard(GetGenes().Select(g => (int)g.Value));
-            return new List<SudokuBoard>(new[] { sudoku });
+            var sudoku = new Sudoku(GetGenes().Select(g => (int)g.Value));
+            return new List<Sudoku>(new[] { sudoku });
         }
     }
 }

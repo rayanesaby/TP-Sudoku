@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Fitnesses;
+using Noyau;
 
-namespace GeneticSharp.Extensions.Sudoku
+namespace genetic_solver
 {
     /// <summary>
     /// Evaluates a sudoku chromosome for completion by counting duplicates in rows, columns, boxes, and differences from the target mask
@@ -14,11 +15,11 @@ namespace GeneticSharp.Extensions.Sudoku
         /// <summary>
         /// The target Sudoku Mask to solve.
         /// </summary>
-        private readonly SudokuBoard _targetSudokuBoard;
+        private readonly Sudoku _targetSudoku;
 
-        public SudokuFitness(SudokuBoard targetSudokuBoard)
+        public SudokuFitness(Sudoku targetSudoku)
         {
-            _targetSudokuBoard = targetSudokuBoard;
+            _targetSudoku = targetSudoku;
         }
 
         /// <summary>
@@ -53,17 +54,17 @@ namespace GeneticSharp.Extensions.Sudoku
         /// Evaluates a single Sudoku board by counting the duplicates in rows, boxes
         /// and the digits differing from the target mask.
         /// </summary>
-        /// <param name="testSudokuBoard">the board to evaluate</param>
+        /// <param name="testSudoku">the board to evaluate</param>
         /// <returns>the number of mistakes the Sudoku contains.</returns>
-        public double Evaluate(SudokuBoard testSudokuBoard)
+        public double Evaluate(Sudoku testSudoku)
         {
             // We use a large lambda expression to count duplicates in rows, columns and boxes
-            var cells = testSudokuBoard.Cells.Select((c, i) => new { index = i, cell = c });
+            var cells = testSudoku.Cells.Select((c, i) => new { index = i, cell = c });
             var toTest = cells.GroupBy(x => x.index / 9).Select(g => g.Select(c => c.cell)) // rows
               .Concat(cells.GroupBy(x => x.index % 9).Select(g => g.Select(c => c.cell))) //columns
               .Concat(cells.GroupBy(x => x.index / 27 * 27 + x.index % 9 / 3 * 3).Select(g => g.Select(c => c.cell))); //boxes
             var toReturn = -toTest.Sum(test => test.GroupBy(x => x).Select(g => g.Count() - 1).Sum()); // Summing over duplicates
-            toReturn -= cells.Count(x => _targetSudokuBoard.Cells[x.index] > 0 && _targetSudokuBoard.Cells[x.index] != x.cell); // Mask
+            toReturn -= cells.Count(x => _targetSudoku.Cells[x.index] > 0 && _targetSudoku.Cells[x.index] != x.cell); // Mask
             return toReturn;
         }
 

@@ -1,5 +1,5 @@
 ﻿using GeneticSharp.Domain.Chromosomes;
-using GeneticSharp.Extensions.Sudoku;
+using genetic_solver;
 using NUnit.Framework;
 
 namespace GeneticSharp.Extensions.UnitTests.Sudoku

@@ -6,7 +6,7 @@ using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Selections;
 using GeneticSharp.Domain.Terminations;
-using GeneticSharp.Extensions.Sudoku;
+using genetic_solver;
 
 namespace GeneticSharp.Extensions.UnitTests.Sudoku
 {
@@ -14,12 +14,12 @@ namespace GeneticSharp.Extensions.UnitTests.Sudoku
     {
         private static readonly string _easySudokuString = "9.2..54.31...63.255.84.7.6..263.9..1.57.1.29..9.67.53.24.53.6..7.52..3.4.8..4195.";
 
-        public static SudokuBoard CreateBoard()
+        public static Sudoku CreateBoard()
         {
-            return SudokuBoard.Parse(_easySudokuString);
+            return Sudoku.Parse(_easySudokuString);
         }
 
-        public static double Eval(IChromosome sudokuChromosome, SudokuBoard sudokuBoard, int populationSize, double fitnessThreshold, int generationNb)
+        public static double Eval(IChromosome sudokuChromosome, Sudoku sudokuBoard, int populationSize, double fitnessThreshold, int generationNb)
         {
             var fitness = new SudokuFitness(sudokuBoard);
             var selection = new EliteSelection();
