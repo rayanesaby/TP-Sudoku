@@ -1,5 +1,6 @@
 ﻿using System;
 using Noyau;
+
 namespace genetic_solver
 {
     public class GeneticSolver: ISudokuSolver
@@ -10,6 +11,9 @@ namespace genetic_solver
 
         public Sudoku Solve(Sudoku s)
         {
+
+            return s;
+
             throw new NotImplementedException();
         }
     }

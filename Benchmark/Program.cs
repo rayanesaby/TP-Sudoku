@@ -1,4 +1,6 @@
 ﻿using System;
+using Noyau;
+//using genetic_solver;
 
 namespace Benchmark
 {
@@ -7,8 +9,7 @@ namespace Benchmark
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
+
         }
     }
 }
