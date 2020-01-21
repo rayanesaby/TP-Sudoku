@@ -30,6 +30,9 @@ namespace ORToolsSolver
 
             OrToolsSolver ORT = new OrToolsSolver();
             s = ORT.Solve(s);
+
+
+
             Console.WriteLine(s.ToString());
 
 
