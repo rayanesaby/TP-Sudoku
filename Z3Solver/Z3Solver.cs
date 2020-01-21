@@ -70,7 +70,7 @@ namespace Z3Solver
                 sudoku_c = ctx.MkAnd(ctx.MkAnd(cols_c), sudoku_c);
                 foreach (BoolExpr[] t in sq_c)
                     sudoku_c = ctx.MkAnd(ctx.MkAnd(t), sudoku_c);
-
+                
                 // sudoku instance, we use '0' for empty cells
                 var listCell = new List<List<int>>();
                 for (int i = 0; i < 9; i++)
@@ -85,20 +85,25 @@ namespace Z3Solver
 
                 BoolExpr instance_c = ctx.MkTrue();
                 for (uint i = 0; i < 9; i++)
+                {
                     for (uint j = 0; j < 9; j++)
+                    {
                         instance_c = ctx.MkAnd(instance_c,
                             (BoolExpr)
                             ctx.MkITE(ctx.MkEq(ctx.MkInt(instance[i, j]), ctx.MkInt(0)),
                                         ctx.MkTrue(),
                                         ctx.MkEq(X[i][j], ctx.MkInt(instance[i, j]))));
 
-                Solver s = ctx.MkSolver();
-                s.Assert(sudoku_c);
-                s.Assert(instance_c);
+                    }
+                }
 
-                if (s.Check() == Status.SATISFIABLE)
+                Solver solve = ctx.MkSolver();
+                solve.Assert(sudoku_c);
+                solve.Assert(instance_c);
+
+                if (solve.Check() == Status.SATISFIABLE)
                 {
-                    Model m = s.Model;
+                    Model m = solve.Model;
                     Expr[,] R = new Expr[9, 9];
                     for (int i = 0; i < 9; i++)
                         for (int j = 0; j < 9; j++)
@@ -110,7 +115,7 @@ namespace Z3Solver
                     {
                         for (int j = 0; j < 9; j++)
                             //Console.Write(" " + R[i, j]);
-                            solu.Cells[i * 9 + j] = int.Parse( R[i, j].ToString());
+                            solu.Cells[i * 9 + j] = int.Parse( R[i, j].ToString() );
                         Console.WriteLine();
                     }
 
