@@ -4,14 +4,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Noyau
+namespace GeneticSharp.Extensions.Sudoku
 {
-    public class Sudoku
+    /// <summary>
+    /// Class that represents a Sudoku, fully or partially completed
+    /// Holds a list of 81 int for cells, with 0 for empty cells
+    /// Can parse strings and files from most common formats and displays the sudoku in an easy to read format
+    /// </summary>
+    public class SudokuBoard
     {
+
         /// <summary>
         /// The empty constructor assumes no mask
         /// </summary>
-        public Sudoku()
+        public SudokuBoard()
         {
         }
 
@@ -19,7 +25,7 @@ namespace Noyau
         /// constructor that initializes the board with 81 cells
         /// </summary>
         /// <param name="cells"></param>
-        public Sudoku(IEnumerable<int> cells)
+        public SudokuBoard(IEnumerable<int> cells)
         {
             var enumerable = cells.ToList();
             if (enumerable.Count != 81)
@@ -89,7 +95,7 @@ namespace Noyau
                 {
                     output.Append(lineSep);
                 }
-
+               
                 output.AppendLine();
             }
 
@@ -101,7 +107,7 @@ namespace Noyau
         /// </summary>
         /// <param name="sudokuAsString">the string representing the sudoku</param>
         /// <returns>the parsed sudoku</returns>
-        public static Sudoku Parse(string sudokuAsString)
+        public static SudokuBoard Parse(string sudokuAsString)
         {
             return ParseMulti(new[] { sudokuAsString })[0];
         }
@@ -111,7 +117,7 @@ namespace Noyau
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns>the list of parsed Sudokus</returns>
-        public static List<Sudoku> ParseFile(string fileName)
+        public static List<SudokuBoard> ParseFile(string fileName)
         {
             return ParseMulti(File.ReadAllLines(fileName));
         }
@@ -121,9 +127,9 @@ namespace Noyau
         /// </summary>
         /// <param name="lines">the lines of string to parse</param>
         /// <returns>the list of parsed Sudokus</returns>
-        public static List<Sudoku> ParseMulti(string[] lines)
+        public static List<SudokuBoard> ParseMulti(string[] lines)
         {
-            var toReturn = new List<Sudoku>();
+            var toReturn = new List<SudokuBoard>();
             var cells = new List<int>(81);
             // we ignore lines not starting with a sudoku character
             foreach (var line in lines.Where(l => l.Length > 0
@@ -148,7 +154,7 @@ namespace Noyau
                     // when 81 cells are entered, we create a sudoku and start collecting cells again.
                     if (cells.Count == 81)
                     {
-                        toReturn.Add(new Sudoku() { Cells = new List<int>(cells) });
+                        toReturn.Add(new SudokuBoard() { Cells = new List<int>(cells) });
                         // we empty the current cell collector to start building a new Sudoku
                         cells.Clear();
                     }
@@ -169,5 +175,8 @@ namespace Noyau
         {
             return char.IsDigit(c) || c == '.' || c == 'X' || c == '-';
         }
+
     }
+
+
 }
