@@ -78,11 +78,52 @@ namespace Z3Solver
                     listCell.Add(new List<int>());
                     for (int j = 0; j < 9; j++)
                     {
-                        listCell[listCell.Count - 1].Add(s.Cells[9 * i + j]);
+                        listCell[listCell.Count - 1].Add(s.Cells[(9 * i) + j]);
                     }
                 }
-                int[,] instance = To2D(listCell.Select(ligne => ligne.ToArray()).ToArray()); 
+                int[,] instance = To2D(listCell.Select(ligne => ligne.ToArray()).ToArray());
 
+                BoolExpr instance_c = ctx.MkTrue();
+                for (uint i = 0; i < 9; i++)
+                    for (uint j = 0; j < 9; j++)
+                        instance_c = ctx.MkAnd(instance_c,
+                            (BoolExpr)
+                            ctx.MkITE(ctx.MkEq(ctx.MkInt(instance[i, j]), ctx.MkInt(0)),
+                                        ctx.MkTrue(),
+                                        ctx.MkEq(X[i][j], ctx.MkInt(instance[i, j]))));
+
+                Solver s = ctx.MkSolver();
+                s.Assert(sudoku_c);
+                s.Assert(instance_c);
+
+                if (s.Check() == Status.SATISFIABLE)
+                {
+                    Model m = s.Model;
+                    Expr[,] R = new Expr[9, 9];
+                    for (int i = 0; i < 9; i++)
+                        for (int j = 0; j < 9; j++)
+                            R[i, j] = m.Evaluate(X[i][j]);
+                    Console.WriteLine("Sudoku solution:");
+
+                    var solu = new Sudoku();
+                    for (int i = 0; i < 9; i++)
+                    {
+                        for (int j = 0; j < 9; j++)
+                            //Console.Write(" " + R[i, j]);
+                            solu.Cells[i * 9 + j] = int.Parse( R[i, j].ToString());
+                        Console.WriteLine();
+                    }
+
+                    return solu;
+
+                }
+                else
+                {
+                    Console.WriteLine("Failed to solve sudoku");
+
+                }
+
+                return null;
             }
         }
 
