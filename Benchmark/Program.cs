@@ -28,6 +28,7 @@ namespace Benchmark
 
                                              0, 2, 0, 0, 4, 0, 0, 5, 0 };
 
+            //declaration du chronometre
             Stopwatch stopwatch = new Stopwatch();
 
             Noyau.Sudoku s = new Noyau.Sudoku(initial_grid);
@@ -61,7 +62,7 @@ namespace Benchmark
             Console.WriteLine(fitness.Evaluate(s_1));
 
             //instruction durée d'exe
-            Console.WriteLine("Durée d'exécution: {0} , secondes", stopwatch.Elapsed.TotalSeconds);
+            Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds);
             stopwatch.Reset();
 
             Console.WriteLine("\n");
@@ -86,8 +87,30 @@ namespace Benchmark
             Console.WriteLine(fitness.Evaluate(s_2));
 
             //instruction durée d'exe
-            Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds , "seconds");
+            Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds);
             stopwatch.Reset();
+
+            Console.WriteLine("\n");
+            Console.WriteLine("******************************************************");
+            Console.WriteLine("\n");
+
+            //instruction next algo
+
+            Console.WriteLine("\n");
+            Console.WriteLine("******************************************************");
+            Console.WriteLine("\n");
+
+            //instruction next algo
+
+            Console.WriteLine("\n");
+            Console.WriteLine("******************************************************");
+            Console.WriteLine("\n");
+
+            //instruction next algo
+
+            Console.WriteLine("\n");
+            Console.WriteLine("******************************************************");
+            Console.WriteLine("\n");
 
             Console.ReadLine();
         }
