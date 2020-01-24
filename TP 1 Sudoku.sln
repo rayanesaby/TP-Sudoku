@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noyau", "Noyau\Noyau.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benchmark.csproj", "{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}"
 EndProject
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoverNorvig", "SoverNorvig\SoverNorvig.csproj", "{8E0F1A89-741D-4CB5-8C12-306D825BA14B}"
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORToolsSolver", "ORToolsSolver\ORToolsSolver.csproj", "{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "genetic_solver", "genetic_solver\genetic_solver.csproj", "{1E022738-D53A-45E4-BCE1-6F3DE905C47B}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,12 @@ Global
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Debug|x64.Build.0 = Debug|x64
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|Any CPU.Build.0 = Release|Any CPU
+
+		{8E0F1A89-741D-4CB5-8C12-306D825BA14B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0F1A89-741D-4CB5-8C12-306D825BA14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0F1A89-741D-4CB5-8C12-306D825BA14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0F1A89-741D-4CB5-8C12-306D825BA14B}.Release|Any CPU.Build.0 = Release|Any CPU
+
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|x64.ActiveCfg = Release|x64
 		{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}.Release|x64.Build.0 = Release|x64
 		{6EC37C50-97AE-407E-B493-63DC9F3B9B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,6 +61,7 @@ Global
 		{1E022738-D53A-45E4-BCE1-6F3DE905C47B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E022738-D53A-45E4-BCE1-6F3DE905C47B}.Release|x64.ActiveCfg = Release|x64
 		{1E022738-D53A-45E4-BCE1-6F3DE905C47B}.Release|x64.Build.0 = Release|x64
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
