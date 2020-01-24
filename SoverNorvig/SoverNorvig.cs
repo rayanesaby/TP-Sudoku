@@ -178,28 +178,9 @@ namespace SoverNorvig
             {
                 if (e != null) return e;
             }
-            return default(T);
+            return default;
         }
-        /*
-         * def center(s, width):
-         *   n = width - len(s)
-         *   if n <= 0: return s
-         *   half = n/2
-         *   if n%2 and width%2:
-         *     half = half+1
-         *   return ' '*half +  s + ' '*(n-half)
-         */
-        static string Center(string s, int width)
-        {
-            var n = width - s.Length;
-            if (n <= 0) return s;
-            var half = n / 2;
-
-            if (n % 2 > 0 && width % 2 > 0) half++;
-
-            return new string(' ', half) + s + new String(' ', n - half);
-        }
-      
+     
 
         // Eliminate d from values[s]; propagate when values or places <= 2.
         /* def eliminate(values, s, d):
