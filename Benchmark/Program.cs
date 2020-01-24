@@ -178,6 +178,7 @@ namespace Benchmark
             Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds);
             stopwatch.Reset();
 
+
             Console.WriteLine("\n");
             Console.WriteLine("******************************************************");
             Console.WriteLine("\n");
