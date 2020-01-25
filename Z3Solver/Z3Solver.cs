@@ -11,14 +11,16 @@ namespace Z3Solver
     {
         public Sudoku Solve(Sudoku s)
         {
+            //Création d'une instance Contexte
             using (Context ctx = new Context(new Dictionary<string, string>() { { "model", "true" } }))
             {
                 // 9x9 matrix of integer variables
                 IntExpr[][] X = new IntExpr[9][];
                 for (uint i = 0; i < 9; i++)
                 {
-                    X[i] = new IntExpr[9];
-                    for (uint j = 0; j < 9; j++)
+                    X[i] = new IntExpr[9]; //Liste de 9 case
+                    for (uint j = 0; j < 9; j++) //Parcourt la liste
+                        //pour chaque case on affecte une valeur
                         X[i][j] = (IntExpr)ctx.MkConst(ctx.MkSymbol("x_" + (i + 1) + "_" + (j + 1)), ctx.IntSort);
                 }
 
@@ -86,7 +88,7 @@ namespace Z3Solver
                 BoolExpr instance_c = ctx.MkTrue();
                 for (uint i = 0; i < 9; i++)
                 {
-                    for (uint j = 0; j < 9; j++)
+                    for (uint j = 0; j < 9; j++ )
                     {
                         instance_c = ctx.MkAnd(instance_c,
                             (BoolExpr)
