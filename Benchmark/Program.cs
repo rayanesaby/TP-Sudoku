@@ -4,6 +4,7 @@ using ORToolsSolver;
 using Noyau;
 using System.Diagnostics;
 
+
 namespace Benchmark
 {
     class Program
@@ -186,7 +187,10 @@ namespace Benchmark
             //instruction next algo
             Console.WriteLine("Résolution à la Norvig ");
 
-            //Norvig nor = new Norvig();
+            SoverNorvig.SoverNorvig nor = new SoverNorvig.SoverNorvig();
+            nor.Solve(s);
+
+
 
             //chrono start
             stopwatch.Start();

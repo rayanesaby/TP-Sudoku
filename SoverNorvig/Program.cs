@@ -6,13 +6,13 @@ namespace SoverNorvig
     {
         static void Main(string[] args)
         {
-            int[] initial_grid = new int[] { 0, 0, 0, 5, 0, 0, 0, 0, 0,
+            int[] initial_grid = new int[] { 9, 0, 0, 5, 0, 0, 0, 0, 8,
 
                                              0, 0, 1, 8, 0, 0, 4, 0, 3,
 
                                              0, 0, 8, 0, 9, 0, 5, 0, 0,
 
-                                             0, 1, 0, 0, 0, 4, 0, 0, 5,
+                                             8, 1, 0, 0, 0, 4, 0, 0, 5,
 
                                              7, 0, 0, 1, 0, 3, 0, 0, 6,
 
@@ -20,9 +20,9 @@ namespace SoverNorvig
 
                                              0, 0, 4, 0, 1, 0, 3, 0, 0,
 
-                                             3, 0, 5, 0, 0, 7, 1, 0, 0,
+                                             3, 0, 5, 0, 8, 7, 1, 0, 0,
 
-                                             0, 0, 0, 0, 0, 5, 0, 0, 0 };
+                                             0, 0, 0, 0, 0, 5, 0, 0, 4 };
 
 
             Noyau.Sudoku s = new Noyau.Sudoku(initial_grid);
@@ -32,7 +32,7 @@ namespace SoverNorvig
             SoverNorvig SN = new SoverNorvig();
             DateTime start = DateTime.Now;
             s = SN.Solve(s);
-            Console.WriteLine("Solving sodoku took " + (DateTime.Now - start).TotalMilliseconds+"milliseconds");
+            Console.WriteLine("Solving sodoku took " + (DateTime.Now - start).TotalSeconds+"seconds");
 
 
 
