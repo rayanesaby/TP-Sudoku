@@ -3,7 +3,7 @@ using genetic_solver;
 using ORToolsSolver;
 using Noyau;
 using System.Diagnostics;
-
+using System.Collections.Generic;
 
 namespace Benchmark
 {
@@ -11,7 +11,78 @@ namespace Benchmark
     {
         static void Main(string[] args)
         {
-            int[] initial_grid = new int[] { 0, 6, 0, 0, 5, 0, 0, 2, 0,
+            Console.WriteLine("\n\n\n               Résolution de Sudoku\n");
+
+            Console.WriteLine("                1. Benchmark Easy");
+            Console.WriteLine("                2. Benchmark Hardest");
+            Console.WriteLine("                3. Benchmark Top 95");
+            Console.WriteLine("                4. Benchmark initiale");
+
+            Console.WriteLine("                5. Quitter");
+
+
+
+            Console.WriteLine("\n         Que voulez vous faire ?");
+            int choix;
+
+                try
+
+                {
+
+                    choix = int.Parse(Console.ReadLine());
+
+                }
+
+                catch (Exception e)
+
+                {
+
+                    choix = -1;
+
+                    Console.WriteLine("\n\n                Saisie invalide\n\n");
+
+                }
+
+
+
+
+            switch (choix) 
+            {
+                case 1:
+                    Console.WriteLine("                1. Benchmark Easy");
+                    break;
+                case 2:
+                    Console.WriteLine("                2. Benchmark Hardest");
+                    break;
+                case 3:
+                    Console.WriteLine("                3. Benchmark Top 95");
+                    break;
+                case 4:
+                    Console.WriteLine("                4. Benchmark initiale");
+                    Sudoku_init();
+                    break;
+                case 5:
+                    Console.WriteLine("Vous Quittez le programme.");
+                    Console.ReadLine();
+                    break;
+            }
+
+
+
+
+            void Sudoku_init()
+            {
+
+            
+                    /**
+                    List<Sudoku>.ParseFile parsefile = new Sudoku.ParseFile;
+
+                    ParseFile(Sudoku_Easy50.txt);
+                    showScore(benchmark(sudoku.getFile("Sudoku_Easy50.txt")), 50, "Easy");
+                    **/
+
+
+                int[] initial_grid = new int[] { 0, 6, 0, 0, 5, 0, 0, 2, 0,
 
                                              0, 0, 0, 3, 0, 0, 0, 9, 0,
 
@@ -187,8 +258,8 @@ namespace Benchmark
             //instruction next algo
             Console.WriteLine("Résolution à la Norvig ");
 
-            SoverNorvig.SoverNorvig nor = new SoverNorvig.SoverNorvig();
-            nor.Solve(s);
+            //SoverNorvig.SoverNorvig nor = new SoverNorvig.SoverNorvig();
+            //nor.Solve(s);
 
 
 
@@ -234,8 +305,10 @@ namespace Benchmark
             //instruction durée d'exe
             Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds);
             stopwatch.Reset();
-
+            
             Console.ReadLine();
         }
+
+    }
     }
 }
