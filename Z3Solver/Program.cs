@@ -12,9 +12,11 @@ namespace Z3Solver
             using (Context ctx = new Context(new Dictionary<string, string>() { { "model", "true" } }))
             {
                 SudokuExample(ctx);
+                //Z3Solver.Solve();  je ne trouve pas la bonne syntaxe pour tester notre classe
+                // SudokuExample(ctx); à retirer plus tard ou laisser en commentaire
             }
 
-            
+
 
         }
         static void SudokuExample(Context ctx)

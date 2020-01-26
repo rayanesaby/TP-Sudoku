@@ -16,7 +16,7 @@ namespace Z3Solver
             {
                 // 9x9 matrix of integer variables
                 IntExpr[][] X = new IntExpr[9][];
-                for (uint i = 0; i < 9; i++)
+                for (uint i = 0; i < 9; i++)  // uint : entier positif
                 {
                     X[i] = new IntExpr[9]; //Liste de 9 case
                     for (uint j = 0; j < 9; j++) //Parcourt la liste
@@ -61,7 +61,7 @@ namespace Z3Solver
                         for (uint i = 0; i < 3; i++)
                             for (uint j = 0; j < 3; j++)
                                 square[3 * i + j] = X[3 * i0 + i][3 * j0 + j];
-                        sq_c[i0][j0] = ctx.MkDistinct(square);
+                        sq_c[i0][j0] = ctx.MkDistinct(square); //compare chaque carré
                     }
                 }
 
@@ -80,7 +80,7 @@ namespace Z3Solver
                     listCell.Add(new List<int>());
                     for (int j = 0; j < 9; j++)
                     {
-                        listCell[listCell.Count - 1].Add(s.Cells[(9 * i) + j]);
+                        listCell[listCell.Count - 1].Add(s.Cells[(9 * i) + j]); // mettre j à la place du 1 non ?
                     }
                 }
                 int[,] instance = To2D(listCell.Select(ligne => ligne.ToArray()).ToArray());
