@@ -61,7 +61,7 @@ namespace SoverNorvig
                     }
                     s.SetCell(j, k, Int32.Parse(kvp.Value));
                     k++;
-                }
+            }
             
             return s;
 
