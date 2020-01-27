@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 
 namespace SoverNorvig
 {
@@ -30,14 +32,13 @@ namespace SoverNorvig
             
 
             SoverNorvig SN = new SoverNorvig();
-            DateTime start = DateTime.Now;
+            var chronomètre = Stopwatch.StartNew();
             s = SN.Solve(s);
-            Console.WriteLine("Solving sodoku took " + (DateTime.Now - start).TotalSeconds+"seconds");
-
-
+            Console.WriteLine($@"Solving sodoku took {chronomètre.Elapsed.TotalSeconds.ToString(CultureInfo.InvariantCulture)} seconds");
 
             Console.WriteLine(s.ToString());
-            Console.WriteLine();
+            Console.Read();
+			
         }
     }
 }
