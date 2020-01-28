@@ -75,4 +75,4 @@ def get_data(file):
 
 
     
-#data = get_data("sudoku.csv")
+data = get_data("sudoku.csv")
