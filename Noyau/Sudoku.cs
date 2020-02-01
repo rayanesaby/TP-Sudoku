@@ -119,7 +119,7 @@ namespace Noyau
         /// </summary>
         /// <param name="sudokuAsString">the string representing the sudoku</param>
         /// <returns>the parsed sudoku</returns>
-        public static Sudoku Parse(string sudokuAsString)
+        public Sudoku Parse(string sudokuAsString)
         {
             return ParseMulti(new[] { sudokuAsString })[0];
         }
