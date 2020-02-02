@@ -53,10 +53,10 @@ namespace Z3Solver
 
             // Résoltuion avec Python en utilisant Ironpython
 
-            string current_path = Directory.GetCurrentDirectory();
-            string py_path = @"..\..\....\solve_using_z3.py";
-            ScriptEngine engine = Python.CreateEngine();
-            engine.ExecuteFile(py_path);
+            //string current_path = Directory.GetCurrentDirectory();
+            //string py_path = @"..\..\..\solve_using_z3.py";
+            //ScriptEngine engine = Python.CreateEngine();
+            //engine.ExecuteFile(py_path);
         }
 
     }
