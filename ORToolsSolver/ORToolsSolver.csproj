@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\genetic_solver\genetic_solver.csproj" />
+    <PackageReference Include="Google.OrTools" Version="7.4.7247" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Noyau\Noyau.csproj" />
-    <ProjectReference Include="..\ORToolsSolver\ORToolsSolver.csproj" />
-    <ProjectReference Include="..\SoverNorvig\SoverNorvig.csproj" />
   </ItemGroup>
 
 </Project>

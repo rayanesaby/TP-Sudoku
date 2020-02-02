@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Noyau\Noyau.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GeneticSharp" Version="2.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Sudoku\SudokuBoard.cs" />
+    <Compile Remove="Sudoku\Sudoku\SudokuBoardTest.cs" />
+    <Compile Remove="Sudoku\Sudoku\SudokuCellsChromosomeTest.cs" />
+    <Compile Remove="Sudoku\Sudoku\SudokuRandomPermutationsChromosomeTest.cs" />
+    <Compile Remove="Sudoku\Sudoku\SudokuPermutationsChromosomeTest.cs" />
+    <Compile Remove="Sudoku\Sudoku\SudokuTestHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Sudoku\Sudoku\SudokuList.sdk" />
+  </ItemGroup>
+</Project>
