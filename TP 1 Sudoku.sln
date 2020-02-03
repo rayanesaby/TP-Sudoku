@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noyau", "Noyau\Noyau.csproj", "{EC4B1D18-1AFB-4CA6-B9E1-2FDB63BAF17F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benchmark.csproj", "{E3F75FCF-A07A-417E-B964-ED6E72ABFD02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F3208E29-8AC4-4853-86F8-4C143D0CE09D} = {F3208E29-8AC4-4853-86F8-4C143D0CE09D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoverNorvig", "SoverNorvig\SoverNorvig.csproj", "{8E0F1A89-741D-4CB5-8C12-306D825BA14B}"
 EndProject

@@ -1,6 +1,7 @@
 using System;
 using genetic_solver;
 using ORToolsSolver;
+//using Z3Solver;
 using Noyau;
 using System.Diagnostics;
 using System.Collections.Generic;
@@ -94,11 +95,12 @@ namespace Benchmark
                 Console.WriteLine("  1. Genetic Solver");
                 Console.WriteLine("  2. ORToolsSolver");
                 Console.WriteLine("  3. Résolution par CSP ");
-                Console.WriteLine("  4. Résolution par SMT  ");
+                Console.WriteLine("  4. Résolution par SMT/Z3  ");
                 Console.WriteLine("  5. Résolution par Dancing_Links  ");
                 Console.WriteLine("  6. Résolution à la Norvig ");
                 Console.WriteLine("  7. Résolution par réseau de neurones convolués ");
                 Console.WriteLine("\n");
+
 
                 int[] initial_grid = new int[] { 0, 6, 0, 0, 5, 0, 0, 2, 0,
 
@@ -262,9 +264,9 @@ namespace Benchmark
 
                     case 4:
                         //instruction next algo
-                        Console.WriteLine("Résolution par SMT  ");
+                        Console.WriteLine("Résolution par SMT/Z3  ");
 
-                        //SMT smt = new SMT();
+                        //Z3Solver smt = new Z3Solver();
 
                         //chrono start
                         stopwatch.Start();
@@ -595,7 +597,7 @@ namespace Benchmark
                 Console.WriteLine("  1. Genetic Solver");
                 Console.WriteLine("  2. ORToolsSolver");
                 Console.WriteLine("  3. Résolution par CSP ");
-                Console.WriteLine("  4. Résolution par SMT  ");
+                Console.WriteLine("  4. Résolution par SMT/Z3 ");
                 Console.WriteLine("  5. Résolution par Dancing_Links  ");
                 Console.WriteLine("  6. Résolution à la Norvig ");
                 Console.WriteLine("  7. Résolution par réseau de neurones convolués ");
@@ -771,7 +773,7 @@ namespace Benchmark
 
                     case 4:
                         //instruction next algo
-                        Console.WriteLine("Résolution par SMT  ");
+                        Console.WriteLine("Résolution par SMT /Z3 ");
 
                         //SMT smt = new SMT();
 
@@ -1081,7 +1083,7 @@ namespace Benchmark
                 Console.WriteLine("  1. Genetic Solver");
                 Console.WriteLine("  2. ORToolsSolver");
                 Console.WriteLine("  3. Résolution par CSP ");
-                Console.WriteLine("  4. Résolution par SMT  ");
+                Console.WriteLine("  4. Résolution par SMT/Z3  ");
                 Console.WriteLine("  5. Résolution par Dancing_Links  ");
                 Console.WriteLine("  6. Résolution à la Norvig ");
                 Console.WriteLine("  7. Résolution par réseau de neurones convolués ");
@@ -1255,7 +1257,7 @@ namespace Benchmark
 
                     case 4:
                         //instruction next algo
-                        Console.WriteLine("Résolution par SMT  ");
+                        Console.WriteLine("Résolution par SMT /Z3 ");
 
                         //SMT smt = new SMT();
 
@@ -1563,7 +1565,7 @@ namespace Benchmark
                 Console.WriteLine("  1. Genetic Solver");
                 Console.WriteLine("  2. ORToolsSolver");
                 Console.WriteLine("  3. Résolution par CSP ");
-                Console.WriteLine("  4. Résolution par SMT  ");
+                Console.WriteLine("  4. Résolution par SMT /Z3 ");
                 Console.WriteLine("  5. Résolution par Dancing_Links  ");
                 Console.WriteLine("  6. Résolution à la Norvig ");
                 Console.WriteLine("  7. Résolution par réseau de neurones convolués ");
@@ -1738,7 +1740,7 @@ namespace Benchmark
 
                     case 4:
                         //instruction next algo
-                        Console.WriteLine("Résolution par SMT  ");
+                        Console.WriteLine("Résolution par SMT/Z3  ");
 
                         //SMT smt = new SMT();
 

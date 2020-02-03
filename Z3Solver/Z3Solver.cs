@@ -7,7 +7,7 @@ using Noyau;
 
 namespace Z3Solver
 {
-    class Z3Solver : ISudokuSolver
+    public class Z3Solver : ISudokuSolver
     {
         public Sudoku Solve(Sudoku s)
         {
