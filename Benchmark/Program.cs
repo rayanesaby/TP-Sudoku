@@ -14,10 +14,11 @@ namespace Benchmark
         {
 
             
-            //Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n\n               Résolution de Sudoku\n");
-            //Console.BackgroundColor = ConsoleColor.Red;
-            //Console.ForegroundColor = ConsoleColor.Yellow;
+            //Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine("                1. Benchmark Easy");
             Console.WriteLine("                2. Benchmark Hardest");
             Console.WriteLine("                3. Benchmark Top 95");
@@ -70,7 +71,7 @@ namespace Benchmark
                     Sudoku_init();
                     break;
                 case 5:
-                    Console.WriteLine("   Vous Quittez le programme.");
+                    Console.WriteLine("   Vous avez quitté le programme.");
                     Console.ReadLine();
             
                     
@@ -154,7 +155,7 @@ namespace Benchmark
                     Console.WriteLine("\n\n                Saisie invalide\n\n");
 
                 }
-
+                
                 Console.WriteLine("******************************************************");
                 Console.WriteLine("\n");
 
