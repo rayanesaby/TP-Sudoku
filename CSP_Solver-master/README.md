@@ -20,7 +20,6 @@ Pour exécuter le programme, vous devez avoir installé python 3.4 ou version ul
 
 Deux fichiers ont été ajoutés montrant la différence entre le fichier csp.py d'origine du code AIMA et celui-ci modifié. (vérifiez modified_results.txt et original_results.txt)
 
-Un pdf expliquant le travail (comment modéliser le problème du sudoku et les tests) a été ajouté, pour le moment il est en italien mais il pourra être traduit à l'avenir, si vous avez des questions n'hésitez pas à me contacter à stevensalazarmolina@gmail.com
 
 
 Bonne lecture à tous 
