@@ -10,7 +10,9 @@
     <ProjectReference Include="..\genetic_solver\genetic_solver.csproj" />
     <ProjectReference Include="..\Noyau\Noyau.csproj" />
     <ProjectReference Include="..\ORToolsSolver\ORToolsSolver.csproj" />
+    <ProjectReference Include="..\Solver CSP Python\Solver CSP Python.csproj" />
     <ProjectReference Include="..\SoverNorvig\SoverNorvig.csproj" />
+    <ProjectReference Include="..\Z3Solver\Z3Solver.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,15 @@
 using System;
 using genetic_solver;
 using ORToolsSolver;
-//using Z3Solver;
+
 using Noyau;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO ;
+using Z3Solver;
+using Solver_CSP_Python;
+
+
 
 namespace Benchmark
 {
@@ -235,12 +239,12 @@ namespace Benchmark
                         //instruction next algo
                         Console.WriteLine("Résolution par CSP ");
 
-                        //CSP csp = new CSP();
+                        SolverCSPPython csp = new SolverCSPPython();
 
                         //chrono start
                         stopwatch.Start();
 
-                        //s_3 = csp.Solve(s);
+                        s_3 = csp.Solve(s);
 
                         //chrono stop
                         stopwatch.Stop();
@@ -266,7 +270,7 @@ namespace Benchmark
                         //instruction next algo
                         Console.WriteLine("Résolution par SMT/Z3  ");
 
-                        //Z3Solver smt = new Z3Solver();
+                        Z3Solver smt = new Z3Solver();
 
                         //chrono start
                         stopwatch.Start();
