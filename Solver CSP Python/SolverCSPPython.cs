@@ -22,7 +22,7 @@ namespace Solver_CSP_Python
                     // create a Python variable "sudoku"
                     scope.Set("sudoku", pySudoku);
 
-                    // the sudoku object may now be used in Python
+                    // the sudoku object may now be used in Pythonn
                     string code = "fullName = person.FirstName + ' ' + person.LastName";
                     scope.Exec(code);
                     s = scope.Get<Sudoku>("sudoku");
