@@ -1,1 +1,1 @@
-this folder contains screenshots showing the level of boards.
+Ce dossier contient des captures d'écran montrant les différents niveau de planches possibles pour le Sudoku. 

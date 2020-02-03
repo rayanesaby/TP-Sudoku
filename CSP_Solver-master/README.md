@@ -1,25 +1,26 @@
-# CSP_Solver
-In order to run the program you should have installed python 3.4 or later, the files search.py, original.py and utils.py have been taken from AIMA's code (
-https://github.com/aimacode/aima-python) as a base solver for general csp.
+CSP Solver 
 
-- original.py, utils.py and search.py arent needed to run main.py or test.py, those have been added just to show its performance on docs/original_results.txt
+Bonjour à tous, 
 
-- The class sudokuCSP creates the objects needed for the general csp solver like neighbor, variables, domain for a sudoku game as a constraint satisfaction problem
+Pour exécuter le programme, vous devez avoir installé python 3.4 ou version ultérieure, les fichiers search.py, original.py et utils.py ont été extraits du code original d'AIMA (https://github.com/aimacode/aima-python) par Peter Norvig comme solveur de base pour csp général.
 
-- The file csp.py contains code from original.py (csp.py file from AIMA's code) slightly modified, it doesnt use rare functions from other files (like ultis.py), the methods that have been modified are labelled with the comment "@modified"
+- original.py, utils.py et search.py ne sont pas nécessaires pour exécuter main.py ou test.py, ceux-ci ont été ajoutés juste pour montrer ses performances sur docs / original_results.txt
 
-*Note: the simple backtracking (without inference) from original.py required a lot of time to solve hard sudoku problems, now it requiers only some seconds to solve them.
+- La classe sudokuCSP crée les objets nécessaires pour le solveur csp général comme voisin, variables, domaine pour un jeu sudoku comme problème de satisfaction de contrainte
 
-- The file csp.py contains algorithms to solve csp, like backtracking with the 3 different methods for inference, mrv and some other methods.
+- Le fichier csp.py contient du code de original.py (fichier csp.py du code AIMA) légèrement modifié, il n'utilise pas de fonctions rares d'autres fichiers (comme ultis.py), les méthodes qui ont été modifiées sont étiquetées avec le commentaire "@modifié"
 
-- The class in gui.py contains code to create a graphic user interface for the game, allowing the user to choose a level (there are 6 different boards) and an infernet method for backtracking
+- Le fichier csp.py contient des algorithmes pour résoudre csp, comme le retour en arrière avec les 3 méthodes différentes pour l'inférence, mrv et quelques autres méthodes.
 
-- The file test.py contains code to execute tests for each inference algorithm on a sudoku board (it is possible to choose which board)
+- La classe dans gui.py contient du code pour créer une interface utilisateur graphique pour le jeu, permettant à l'utilisateur de choisir un niveau (il y a 6 tableaux différents) et une méthode infernet pour le retour en arrière
 
-- The file Main.py contains a main method to run the gui program
+- Le fichier test.py contient du code pour exécuter des tests pour chaque algorithme d'inférence sur une carte sudoku (il est possible de choisir quelle carte)
+
+- Le fichier Main.py contient une méthode principale pour exécuter le programme gui
+
+Deux fichiers ont été ajoutés montrant la différence entre le fichier csp.py d'origine du code AIMA et celui-ci modifié. (vérifiez modified_results.txt et original_results.txt)
 
 
+N'hésitez pas à lire les documentations pour plus d'informations ou à en envoyer un message à Danush, Axel, Célia ou moi-même Laura. 
 
-Two files have been added showing the difference between the original csp.py file from AIMA's code and this one modified. (check modified_results.txt and original_results.txt)
-
-A pdf explaining the work (how to model the sudoku problem and tests) have been added, at the moment it is in italian but it may be traslated in future, if you have any question feel free to contact me at stevensalazarmolina@gmail.com 
+Bonne lecture à tous 

@@ -1,1 +1,1 @@
-this folder contains a document explaining the work and two files txt showing the results from AIMA's code and my code (AIMA's code modified)
+Ce dossier contient un document expliquant le travail et deux fichiers txt montrant les résultats du code AIMA et de notre code (code AIMA modifié).
