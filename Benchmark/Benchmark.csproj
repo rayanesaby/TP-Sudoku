@@ -3,10 +3,14 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\genetic_solver\genetic_solver.csproj" />
     <ProjectReference Include="..\Noyau\Noyau.csproj" />
+    <ProjectReference Include="..\ORToolsSolver\ORToolsSolver.csproj" />
+    <ProjectReference Include="..\SoverNorvig\SoverNorvig.csproj" />
   </ItemGroup>
 
 </Project>

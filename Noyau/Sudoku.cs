@@ -95,13 +95,31 @@ namespace Noyau
 
             return output.ToString();
         }
-
+        /*
+        /// <summary>
+        /// Evaluates a single Sudoku board by counting the duplicates in rows, boxes
+        /// and the digits differing from the target mask.
+        /// </summary>
+        /// <param name="testSudoku">the board to evaluate</param>
+        /// <returns>the number of mistakes the Sudoku contains.</returns>
+        public double Evaluate(Sudoku testSudoku)
+        {
+            // We use a large lambda expression to count duplicates in rows, columns and boxes
+            var cells = testSudoku.Cells.Select((c, i) => new { index = i, cell = c });
+            var toTest = cells.GroupBy(x => x.index / 9).Select(g => g.Select(c => c.cell)) // rows
+              .Concat(cells.GroupBy(x => x.index % 9).Select(g => g.Select(c => c.cell))) //columns
+              .Concat(cells.GroupBy(x => x.index / 27 * 27 + x.index % 9 / 3 * 3).Select(g => g.Select(c => c.cell))); //boxes
+            var toReturn = -toTest.Sum(test => test.GroupBy(x => x).Select(g => g.Count() - 1).Sum()); // Summing over duplicates
+            toReturn -= cells.Count(x => _targetSudoku.Cells[x.index] > 0 && _targetSudoku.Cells[x.index] != x.cell); // Mask
+            return toReturn;
+        }
+        */
         /// <summary>
         /// Parses a single Sudoku
         /// </summary>
         /// <param name="sudokuAsString">the string representing the sudoku</param>
         /// <returns>the parsed sudoku</returns>
-        public static Sudoku Parse(string sudokuAsString)
+        public Sudoku Parse(string sudokuAsString)
         {
             return ParseMulti(new[] { sudokuAsString })[0];
         }
