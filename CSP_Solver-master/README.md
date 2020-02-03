@@ -21,5 +21,6 @@ Pour exécuter le programme, vous devez avoir installé python 3.4 ou version ul
 Deux fichiers ont été ajoutés montrant la différence entre le fichier csp.py d'origine du code AIMA et celui-ci modifié. (vérifiez modified_results.txt et original_results.txt)
 
 
+N'hésitez pas à lire les documentations pour plus d'informations ou à en envoyer un message à Danush, Axel, Célia ou moi-même Laura. 
 
 Bonne lecture à tous 
