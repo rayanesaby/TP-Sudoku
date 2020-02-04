@@ -17,7 +17,7 @@ namespace Benchmark
     {
         static void Main(string[] args)
         {
-            menu = true;
+            var menu = true;
             do
             {
 
@@ -273,7 +273,7 @@ namespace Benchmark
                             //instruction next algo
                             Console.WriteLine("Résolution par SMT/Z3  ");
 
-                            Z3Solver smt = new Z3Solver();
+                            Z3Solver.Z3Solver smt = new Z3Solver.Z3Solver();
                             smt.execute();
                             //test debut
                             int[] initial_grid = new int[] { 0, 6, 0, 0, 5, 0, 0, 2, 0,
@@ -304,13 +304,13 @@ namespace Benchmark
                             //DateTime T_init = DateTime.Now;
                             //Console.WriteLine(T_init);
 
-                            s = smt.Solve(s);
-                            Console.Writeline("ok");
-                            Console.Writeline(smt.Solve(s).ToString());
-                           // Console.WriteLine(toSolve.ToString());
-                            Console.Writeline("fin");
+                            //s = smt.Solve(s);
+                            //Console.WriteLine("ok");
+                            Console.WriteLine(Z3Solver.Solve(s).ToString());
+                            // Console.WriteLine(toSolve.ToString());
+                            //Console.WriteLine("fin");
                             //test fin
-
+                            /*
                             //chrono start
                             stopwatch.Start();
 
@@ -323,10 +323,10 @@ namespace Benchmark
                             //fonction pour evaluer si un sudoku est bon : objectif 0
                             Console.WriteLine("Fitness : ");
                             Console.WriteLine(fitness.Evaluate(s_4));
-
+                            
                             //instruction durée d'exe
                             Console.WriteLine("Durée d'exécution: {0} secondes", stopwatch.Elapsed.TotalSeconds);
-                            stopwatch.Reset();
+                            stopwatch.Reset(); */
 
                             Console.WriteLine("\n");
                             Console.WriteLine("******************************************************");
