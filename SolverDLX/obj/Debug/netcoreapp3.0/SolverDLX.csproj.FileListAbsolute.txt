@@ -1,0 +1,4 @@
+C:\Users\nicol\Desktop\epf-sudoku-MINA\Sudoku\SolverDLX\bin\Debug\netcoreapp3.0\SolverDLX.exe
+C:\Users\nicol\Desktop\epf-sudoku-MINA\Sudoku\SolverDLX\obj\Debug\netcoreapp3.0\SolverDLX.csprojAssemblyReference.cache
+C:\Users\nicol\Desktop\epf-sudoku-MINA\Sudoku\SolverDLX\obj\Debug\netcoreapp3.0\SolverDLX.AssemblyInfoInputs.cache
+C:\Users\nicol\Desktop\epf-sudoku-MINA\Sudoku\SolverDLX\obj\Debug\netcoreapp3.0\SolverDLX.AssemblyInfo.cs
